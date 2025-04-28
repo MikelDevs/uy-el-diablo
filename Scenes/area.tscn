@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://brsy8r3f8gg4p"]
+
+[ext_resource type="Texture2D" uid="uid://b5tlfbf0a0q1q" path="res://Sprites/player.png" id="1_o88qo"]
+[ext_resource type="Script" uid="uid://c874vu133174k" path="res://Scripts/area.gd" id="1_oujlu"]
+
+[node name="Area" type="Node2D"]
+script = ExtResource("1_oujlu")
+
+[node name="PlayerGuide" type="Node2D" parent="."]
+position = Vector2(0, 920)
+
+[node name="Green" type="Sprite2D" parent="PlayerGuide"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(-100, -50)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(448, 0, 32, 32)
+
+[node name="Red" type="Sprite2D" parent="PlayerGuide"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(100, -50)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(480, 0, 32, 32)
+
+[node name="Blue" type="Sprite2D" parent="PlayerGuide"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(-100, 90)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(512, 0, 32, 32)
+
+[node name="Yellow" type="Sprite2D" parent="PlayerGuide"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(100, 90)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(544, 0, 32, 32)
+
+[node name="EnemyGuide" type="Node2D" parent="."]
+position = Vector2(0, 120)
+
+[node name="Green" type="Sprite2D" parent="EnemyGuide"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(-100, -50)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(448, 0, 32, 32)
+
+[node name="Red" type="Sprite2D" parent="EnemyGuide"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(100, -50)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(480, 0, 32, 32)
+
+[node name="Blue" type="Sprite2D" parent="EnemyGuide"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(-100, 90)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(512, 0, 32, 32)
+
+[node name="Yellow" type="Sprite2D" parent="EnemyGuide"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(100, 90)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(544, 0, 32, 32)

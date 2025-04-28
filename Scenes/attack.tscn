@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfbep8p611uu2"]
+
+[ext_resource type="Script" uid="uid://y6ba8xs17ck0" path="res://Scripts/attack.gd" id="1_ht1lw"]
+[ext_resource type="Texture2D" uid="uid://b5tlfbf0a0q1q" path="res://Sprites/player.png" id="1_ij4ji"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ij4ji"]
+
+[node name="Attack" type="Area2D"]
+script = ExtResource("1_ht1lw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5.595, 5.595)
+shape = SubResource("CircleShape2D_ij4ji")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_ij4ji")
+region_enabled = true
+region_rect = Rect2(672, 0, 32, 32)
