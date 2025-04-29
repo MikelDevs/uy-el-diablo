@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cga7pivud3kpe"]
+[gd_scene load_steps=3 format=3 uid="uid://cga7pivud3kpe"]
 
 [ext_resource type="Texture2D" uid="uid://1cll4q3hmese" path="res://Sprites/FlameDemon Evolved.png" id="1_hghv2"]
+[ext_resource type="AudioStream" uid="uid://cdy1i2f7qasgy" path="res://Assets/SHE IS A YAQUI LADY.mp3" id="2_1f0kj"]
 
 [node name="Enemy" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("1_hghv2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_1f0kj")
+volume_db = 0.235
