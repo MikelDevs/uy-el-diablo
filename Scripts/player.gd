@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var anima = $AnimatedSprite2D
 @onready var area : Area = get_parent().get_node("Area")
+@onready var ui = get_parent().get_node("Ui")
+
 var is_attacking = false
 var is_dodging = false
 var is_blocking = false
@@ -51,20 +53,38 @@ func attack(name_anima:String) -> void:
 	match name_anima:
 		"right_up":
 			anima.play("up_attack")
+			if area.get_node("AreaGrey3").is_perfect:
+				ui.show_feedback("Perfect")
+			elif area.get_node("AreaGrey3").is_good:
+				ui.show_feedback("Good")
+			else:
+				ui.show_feedback("Fail")
 		"right":
 			anima.play("down_attack")
+			if area.get_node("AreaGrey8").is_perfect:
+				ui.show_feedback("Perfect")
+			elif area.get_node("AreaGrey8").is_good:
+				ui.show_feedback("Good")
+			else:
+				ui.show_feedback("Fail")
 		"left_up":
 			anima.flip_h = true
 			anima.play("up_attack")
 			if area.get_node("AreaGrey").is_perfect:
-				push_warning("Perfect")
+				ui.show_feedback("Perfect")
 			elif area.get_node("AreaGrey").is_good:
-				push_warning("Good")
+				ui.show_feedback("Good")
 			else:
-				push_warning("Fail")
+				ui.show_feedback("Fail")
 		"left":
 			anima.flip_h = true
 			anima.play("down_attack")
+			if area.get_node("AreaGrey2").is_perfect:
+				ui.show_feedback("Perfect")
+			elif area.get_node("AreaGrey2").is_good:
+				ui.show_feedback("Good")
+			else:
+				ui.show_feedback("Fail")
 
 func block(name_anima:String) -> void:
 	if name_anima == "none":

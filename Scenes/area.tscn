@@ -549,7 +549,7 @@ shape = SubResource("RectangleShape2D_p63qu")
 [node name="Grey2" type="Sprite2D" parent="AreaGrey2"]
 modulate = Color(1, 1, 1, 0.345098)
 position = Vector2(-165, 935)
-scale = Vector2(4.04206, 4.04206)
+scale = Vector2(3.93307, 3.93307)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(704, 0, 32, 32)
@@ -564,7 +564,7 @@ shape = SubResource("RectangleShape2D_p63qu")
 [node name="Grey3" type="Sprite2D" parent="AreaGrey3"]
 modulate = Color(1, 1, 1, 0.345098)
 position = Vector2(60, 880)
-scale = Vector2(4.04206, 4.04206)
+scale = Vector2(3.93307, 3.93307)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(704, 0, 32, 32)
@@ -579,7 +579,7 @@ shape = SubResource("RectangleShape2D_p63qu")
 [node name="Grey4" type="Sprite2D" parent="AreaGrey4"]
 modulate = Color(1, 1, 1, 0.345098)
 position = Vector2(-60, 210)
-scale = Vector2(4.04206, 4.04206)
+scale = Vector2(3.93307, 3.93307)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(704, 0, 32, 32)
@@ -594,7 +594,7 @@ shape = SubResource("RectangleShape2D_p63qu")
 [node name="Grey5" type="Sprite2D" parent="AreaGrey5"]
 modulate = Color(1, 1, 1, 0.345098)
 position = Vector2(-165, 155)
-scale = Vector2(4.04206, 4.04206)
+scale = Vector2(3.93307, 3.93307)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(704, 0, 32, 32)
@@ -609,7 +609,7 @@ shape = SubResource("RectangleShape2D_p63qu")
 [node name="Grey6" type="Sprite2D" parent="AreaGrey6"]
 modulate = Color(1, 1, 1, 0.345098)
 position = Vector2(60, 210)
-scale = Vector2(4.04206, 4.04206)
+scale = Vector2(3.93307, 3.93307)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(704, 0, 32, 32)
@@ -624,7 +624,7 @@ shape = SubResource("RectangleShape2D_p63qu")
 [node name="Grey7" type="Sprite2D" parent="AreaGrey7"]
 modulate = Color(1, 1, 1, 0.345098)
 position = Vector2(165, 155)
-scale = Vector2(4.04206, 4.04206)
+scale = Vector2(3.93307, 3.93307)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(704, 0, 32, 32)
@@ -639,7 +639,7 @@ shape = SubResource("RectangleShape2D_p63qu")
 [node name="Grey8" type="Sprite2D" parent="AreaGrey8"]
 modulate = Color(1, 1, 1, 0.345098)
 position = Vector2(165, 935)
-scale = Vector2(4.04206, 4.04206)
+scale = Vector2(3.93307, 3.93307)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(704, 0, 32, 32)

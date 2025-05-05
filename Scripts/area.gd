@@ -22,7 +22,7 @@ func _ready() -> void:
 func spawn_attack():
 	is_attacking = true
 	var music_player = get_parent().get_node("Enemy/AudioStreamPlayer2D")
-	music_player.play()
+	#music_player.play()
 	animation_player.play("PulseAnimation")
 	
 	is_attacking = false
