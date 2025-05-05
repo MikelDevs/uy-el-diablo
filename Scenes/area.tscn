@@ -1,77 +1,648 @@
-[gd_scene load_steps=3 format=3 uid="uid://brsy8r3f8gg4p"]
+[gd_scene load_steps=12 format=3 uid="uid://brsy8r3f8gg4p"]
 
 [ext_resource type="Texture2D" uid="uid://b5tlfbf0a0q1q" path="res://Sprites/player.png" id="1_o88qo"]
 [ext_resource type="Script" uid="uid://c874vu133174k" path="res://Scripts/area.gd" id="1_oujlu"]
+[ext_resource type="Script" uid="uid://cvw3ajluemxub" path="res://Scripts/pulseColision.gd" id="4_p63qu"]
+[ext_resource type="AudioStream" uid="uid://d3o72y82ocdg1" path="res://Assets/548508__ludwigmueller__perc_clicktoy_hi.wav" id="5_mnqw4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x45ud"]
+size = Vector2(1.5, 19.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oujlu"]
+size = Vector2(11, 20)
+
+[sub_resource type="Animation" id="Animation_oujlu"]
+resource_name = "PulseAnimation"
+length = 0.375
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../AreaGrey/Grey:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(5, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../AreaGrey2/Grey2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(5, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../AreaGrey3/Grey3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(5, 5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../AreaGrey4/Grey4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(5, 5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../AreaGrey5/Grey5:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(5, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../AreaGrey6/Grey6:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(5, 5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../AreaGrey7/Grey7:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(5, 5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../AreaGrey8/Grey8:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(5, 5)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../AreaGrey/CollisionShape2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-132, 880), Vector2(-111, 880), Vector2(-111, 880), Vector2(-132, 880)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../../AreaGrey2/CollisionShape2D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-237, 935), Vector2(-216, 935), Vector2(-216, 935), Vector2(-237, 935)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../../AreaGrey3/CollisionShape2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, 880), Vector2(9, 880), Vector2(9, 880), Vector2(-12, 880)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../../AreaGrey4/CollisionShape2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-132, 210), Vector2(-111, 210), Vector2(-111, 210), Vector2(-132, 210)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../../AreaGrey5/CollisionShape2D:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-237, 155), Vector2(-216, 155), Vector2(-216, 155), Vector2(-237, 155)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../../AreaGrey6/CollisionShape2D:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, 210), Vector2(9, 210), Vector2(9, 210), Vector2(-12, 210)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../../AreaGrey7/CollisionShape2D:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(93, 155), Vector2(114, 155), Vector2(114, 155), Vector2(93, 155)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../../AreaGrey8/CollisionShape2D:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.1525, 0.2225, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(93, 935), Vector2(114, 935), Vector2(114, 935), Vector2(93, 935)]
+}
+
+[sub_resource type="Animation" id="Animation_x45ud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../AreaGrey/Grey:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.5, 3.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../AreaGrey/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-131, 880)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../AreaGrey2/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-237, 935)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../AreaGrey3/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, 880)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../AreaGrey4/CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-132, 210)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../AreaGrey5/CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-237, 155)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../AreaGrey6/CollisionShape2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, 210)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../AreaGrey7/CollisionShape2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(93, 155)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../AreaGrey8/CollisionShape2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(93, 935)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p63qu"]
+_data = {
+&"PulseAnimation": SubResource("Animation_oujlu"),
+&"RESET": SubResource("Animation_x45ud")
+}
+
+[sub_resource type="GDScript" id="GDScript_p63qu"]
+script/source = "extends AnimationPlayer
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p63qu"]
+size = Vector2(15, 29)
 
 [node name="Area" type="Node2D"]
 script = ExtResource("1_oujlu")
 
 [node name="PlayerGuide" type="Node2D" parent="."]
-position = Vector2(0, 920)
+position = Vector2(0, 970)
 
-[node name="Green" type="Sprite2D" parent="PlayerGuide"]
+[node name="Green" type="Node2D" parent="PlayerGuide"]
+position = Vector2(-60, -90)
+
+[node name="Green" type="Sprite2D" parent="PlayerGuide/Green"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(-100, -50)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(448, 0, 32, 32)
 
-[node name="Red" type="Sprite2D" parent="PlayerGuide"]
+[node name="Perfect" type="Area2D" parent="PlayerGuide/Green"]
+
+[node name="Perfect" type="CollisionShape2D" parent="PlayerGuide/Green/Perfect"]
+position = Vector2(-43, 0)
+shape = SubResource("RectangleShape2D_x45ud")
+
+[node name="Good" type="Area2D" parent="PlayerGuide/Green"]
+
+[node name="Good" type="CollisionShape2D" parent="PlayerGuide/Green/Good"]
+position = Vector2(-43.5, 0)
+shape = SubResource("RectangleShape2D_oujlu")
+
+[node name="Red" type="Node2D" parent="PlayerGuide"]
+position = Vector2(60, -90)
+
+[node name="Red" type="Sprite2D" parent="PlayerGuide/Red"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(100, -50)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(480, 0, 32, 32)
 
-[node name="Blue" type="Sprite2D" parent="PlayerGuide"]
+[node name="Perfect" type="Area2D" parent="PlayerGuide/Red"]
+
+[node name="Perfect" type="CollisionShape2D" parent="PlayerGuide/Red/Perfect"]
+position = Vector2(-43, 0)
+shape = SubResource("RectangleShape2D_x45ud")
+
+[node name="Good" type="Area2D" parent="PlayerGuide/Red"]
+
+[node name="Good" type="CollisionShape2D" parent="PlayerGuide/Red/Good"]
+position = Vector2(-43.5, 0)
+shape = SubResource("RectangleShape2D_oujlu")
+
+[node name="Blue" type="Node2D" parent="PlayerGuide"]
+position = Vector2(-165, -35)
+
+[node name="Blue" type="Sprite2D" parent="PlayerGuide/Blue"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(-100, 90)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(512, 0, 32, 32)
 
-[node name="Yellow" type="Sprite2D" parent="PlayerGuide"]
+[node name="Perfect" type="Area2D" parent="PlayerGuide/Blue"]
+
+[node name="Perfect" type="CollisionShape2D" parent="PlayerGuide/Blue/Perfect"]
+position = Vector2(-43, 0)
+shape = SubResource("RectangleShape2D_x45ud")
+
+[node name="Good" type="Area2D" parent="PlayerGuide/Blue"]
+
+[node name="Good" type="CollisionShape2D" parent="PlayerGuide/Blue/Good"]
+position = Vector2(-43.5, 0)
+shape = SubResource("RectangleShape2D_oujlu")
+
+[node name="Yellow" type="Node2D" parent="PlayerGuide"]
+position = Vector2(165, -35)
+
+[node name="Yellow" type="Sprite2D" parent="PlayerGuide/Yellow"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(100, 90)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(544, 0, 32, 32)
+
+[node name="Perfect" type="Area2D" parent="PlayerGuide/Yellow"]
+
+[node name="Perfect" type="CollisionShape2D" parent="PlayerGuide/Yellow/Perfect"]
+position = Vector2(-43, 0)
+shape = SubResource("RectangleShape2D_x45ud")
+
+[node name="Good" type="Area2D" parent="PlayerGuide/Yellow"]
+
+[node name="Good" type="CollisionShape2D" parent="PlayerGuide/Yellow/Good"]
+position = Vector2(-43.5, 0)
+shape = SubResource("RectangleShape2D_oujlu")
 
 [node name="EnemyGuide" type="Node2D" parent="."]
 position = Vector2(0, 120)
 
-[node name="Green" type="Sprite2D" parent="EnemyGuide"]
+[node name="Green" type="Node2D" parent="EnemyGuide"]
+position = Vector2(-60, 90)
+
+[node name="Green" type="Sprite2D" parent="EnemyGuide/Green"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(-100, -50)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(448, 0, 32, 32)
 
-[node name="Red" type="Sprite2D" parent="EnemyGuide"]
+[node name="Perfect" type="Area2D" parent="EnemyGuide/Green"]
+
+[node name="Perfect" type="CollisionShape2D" parent="EnemyGuide/Green/Perfect"]
+position = Vector2(-43, 0)
+shape = SubResource("RectangleShape2D_x45ud")
+
+[node name="Good" type="Area2D" parent="EnemyGuide/Green"]
+
+[node name="Good" type="CollisionShape2D" parent="EnemyGuide/Green/Good"]
+position = Vector2(-43.5, 0)
+shape = SubResource("RectangleShape2D_oujlu")
+
+[node name="Red" type="Node2D" parent="EnemyGuide"]
+position = Vector2(60, 90)
+
+[node name="Red" type="Sprite2D" parent="EnemyGuide/Red"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(100, -50)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(480, 0, 32, 32)
 
-[node name="Blue" type="Sprite2D" parent="EnemyGuide"]
+[node name="Perfect" type="Area2D" parent="EnemyGuide/Red"]
+
+[node name="Perfect" type="CollisionShape2D" parent="EnemyGuide/Red/Perfect"]
+position = Vector2(-43, 0)
+shape = SubResource("RectangleShape2D_x45ud")
+
+[node name="Good" type="Area2D" parent="EnemyGuide/Red"]
+
+[node name="Good" type="CollisionShape2D" parent="EnemyGuide/Red/Good"]
+position = Vector2(-43.5, 0)
+shape = SubResource("RectangleShape2D_oujlu")
+
+[node name="Blue" type="Node2D" parent="EnemyGuide"]
+position = Vector2(-165, 35)
+
+[node name="Blue" type="Sprite2D" parent="EnemyGuide/Blue"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(-100, 90)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(512, 0, 32, 32)
 
-[node name="Yellow" type="Sprite2D" parent="EnemyGuide"]
+[node name="Perfect" type="Area2D" parent="EnemyGuide/Blue"]
+
+[node name="Perfect" type="CollisionShape2D" parent="EnemyGuide/Blue/Perfect"]
+position = Vector2(-43, 0)
+shape = SubResource("RectangleShape2D_x45ud")
+
+[node name="Good" type="Area2D" parent="EnemyGuide/Blue"]
+
+[node name="Good" type="CollisionShape2D" parent="EnemyGuide/Blue/Good"]
+position = Vector2(-43.5, 0)
+shape = SubResource("RectangleShape2D_oujlu")
+
+[node name="Yellow" type="Node2D" parent="EnemyGuide"]
+position = Vector2(165, 35)
+
+[node name="Yellow" type="Sprite2D" parent="EnemyGuide/Yellow"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(100, 90)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_o88qo")
 region_enabled = true
 region_rect = Rect2(544, 0, 32, 32)
+
+[node name="Perfect" type="Area2D" parent="EnemyGuide/Yellow"]
+
+[node name="Perfect" type="CollisionShape2D" parent="EnemyGuide/Yellow/Perfect"]
+position = Vector2(-43, 0)
+shape = SubResource("RectangleShape2D_x45ud")
+
+[node name="Good" type="Area2D" parent="EnemyGuide/Yellow"]
+
+[node name="Good" type="CollisionShape2D" parent="EnemyGuide/Yellow/Good"]
+position = Vector2(-43.5, 0)
+shape = SubResource("RectangleShape2D_oujlu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../PlayerGuide/Green")
+libraries = {
+&"": SubResource("AnimationLibrary_p63qu")
+}
+script = SubResource("GDScript_p63qu")
+
+[node name="AreaGrey" type="Area2D" parent="."]
+script = ExtResource("4_p63qu")
+
+[node name="Grey" type="Sprite2D" parent="AreaGrey"]
+modulate = Color(1, 1, 1, 0.345098)
+position = Vector2(-60, 880)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(704, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaGrey"]
+position = Vector2(-131, 880)
+shape = SubResource("RectangleShape2D_p63qu")
+
+[node name="AreaGrey2" type="Area2D" parent="."]
+script = ExtResource("4_p63qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaGrey2"]
+position = Vector2(-237, 935)
+shape = SubResource("RectangleShape2D_p63qu")
+
+[node name="Grey2" type="Sprite2D" parent="AreaGrey2"]
+modulate = Color(1, 1, 1, 0.345098)
+position = Vector2(-165, 935)
+scale = Vector2(4.04206, 4.04206)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(704, 0, 32, 32)
+
+[node name="AreaGrey3" type="Area2D" parent="."]
+script = ExtResource("4_p63qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaGrey3"]
+position = Vector2(-12, 880)
+shape = SubResource("RectangleShape2D_p63qu")
+
+[node name="Grey3" type="Sprite2D" parent="AreaGrey3"]
+modulate = Color(1, 1, 1, 0.345098)
+position = Vector2(60, 880)
+scale = Vector2(4.04206, 4.04206)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(704, 0, 32, 32)
+
+[node name="AreaGrey4" type="Area2D" parent="."]
+script = ExtResource("4_p63qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaGrey4"]
+position = Vector2(-132, 210)
+shape = SubResource("RectangleShape2D_p63qu")
+
+[node name="Grey4" type="Sprite2D" parent="AreaGrey4"]
+modulate = Color(1, 1, 1, 0.345098)
+position = Vector2(-60, 210)
+scale = Vector2(4.04206, 4.04206)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(704, 0, 32, 32)
+
+[node name="AreaGrey5" type="Area2D" parent="."]
+script = ExtResource("4_p63qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaGrey5"]
+position = Vector2(-237, 155)
+shape = SubResource("RectangleShape2D_p63qu")
+
+[node name="Grey5" type="Sprite2D" parent="AreaGrey5"]
+modulate = Color(1, 1, 1, 0.345098)
+position = Vector2(-165, 155)
+scale = Vector2(4.04206, 4.04206)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(704, 0, 32, 32)
+
+[node name="AreaGrey6" type="Area2D" parent="."]
+script = ExtResource("4_p63qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaGrey6"]
+position = Vector2(-12, 210)
+shape = SubResource("RectangleShape2D_p63qu")
+
+[node name="Grey6" type="Sprite2D" parent="AreaGrey6"]
+modulate = Color(1, 1, 1, 0.345098)
+position = Vector2(60, 210)
+scale = Vector2(4.04206, 4.04206)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(704, 0, 32, 32)
+
+[node name="AreaGrey7" type="Area2D" parent="."]
+script = ExtResource("4_p63qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaGrey7"]
+position = Vector2(93, 155)
+shape = SubResource("RectangleShape2D_p63qu")
+
+[node name="Grey7" type="Sprite2D" parent="AreaGrey7"]
+modulate = Color(1, 1, 1, 0.345098)
+position = Vector2(165, 155)
+scale = Vector2(4.04206, 4.04206)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(704, 0, 32, 32)
+
+[node name="AreaGrey8" type="Area2D" parent="."]
+script = ExtResource("4_p63qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaGrey8"]
+position = Vector2(93, 935)
+shape = SubResource("RectangleShape2D_p63qu")
+
+[node name="Grey8" type="Sprite2D" parent="AreaGrey8"]
+modulate = Color(1, 1, 1, 0.345098)
+position = Vector2(165, 935)
+scale = Vector2(4.04206, 4.04206)
+texture = ExtResource("1_o88qo")
+region_enabled = true
+region_rect = Rect2(704, 0, 32, 32)
+
+[node name="Pulse" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_mnqw4")

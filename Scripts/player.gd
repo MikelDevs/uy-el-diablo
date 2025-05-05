@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var anima = $AnimatedSprite2D
+@onready var area : Area = get_parent().get_node("Area")
 var is_attacking = false
 var is_dodging = false
 var is_blocking = false
@@ -55,6 +56,12 @@ func attack(name_anima:String) -> void:
 		"left_up":
 			anima.flip_h = true
 			anima.play("up_attack")
+			if area.get_node("AreaGrey").is_perfect:
+				push_warning("Perfect")
+			elif area.get_node("AreaGrey").is_good:
+				push_warning("Good")
+			else:
+				push_warning("Fail")
 		"left":
 			anima.flip_h = true
 			anima.play("down_attack")

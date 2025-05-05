@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lkya6cmnkhdh"
+path="res://.godot/imported/An Angel born.mp3-2b56636a7fc8e4cd4c41ce3243a88cc5.mp3str"
+
+[deps]
+
+source_file="res://Assets/An Angel born.mp3"
+dest_files=["res://.godot/imported/An Angel born.mp3-2b56636a7fc8e4cd4c41ce3243a88cc5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

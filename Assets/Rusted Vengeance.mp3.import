@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmkpuvgqmdbrf"
+path="res://.godot/imported/Rusted Vengeance.mp3-ba357a3ee93521879570c29b11423efc.mp3str"
+
+[deps]
+
+source_file="res://Assets/Rusted Vengeance.mp3"
+dest_files=["res://.godot/imported/Rusted Vengeance.mp3-ba357a3ee93521879570c29b11423efc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
