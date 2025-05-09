@@ -1,14 +1,29 @@
+class_name Player
+
 extends Node2D
 
 @onready var anima = $AnimatedSprite2D
 @onready var area : Area = get_parent().get_node("Area")
-@onready var ui = get_parent().get_node("Ui")
+@onready var ui : Ui = get_parent().get_node("Ui")
+@onready var combo_note_ui = preload("res://Scenes/ComboNoteUi.tscn")
 
+@export var player_data: PlayerAttributesResource
+
+var current_health: float
 var is_attacking = false
 var is_dodging = false
 var is_blocking = false
+var colors = {
+	"Yellow": 544,
+	"Blue": 512,
+	"Red": 480,
+	"Green": 448
+}
 
 func _ready() -> void:
+	# Cargar atributos
+	var 	attr = player_data.attributes
+	current_health = attr.health
 	anima.play("idle")
 
 func _process(_delta: float) -> void:
@@ -49,6 +64,8 @@ func attack(name_anima:String) -> void:
 		return
 	
 	is_attacking = true
+	var combo = ui.get_node("Control/HBoxContainer")
+	var current_note : TextureRect = combo_note_ui.instantiate()
 	
 	match name_anima:
 		"right_up":
@@ -85,6 +102,8 @@ func attack(name_anima:String) -> void:
 				ui.show_feedback("Good")
 			else:
 				ui.show_feedback("Fail")
+	
+	combo.add_child(current_note)
 
 func block(name_anima:String) -> void:
 	if name_anima == "none":

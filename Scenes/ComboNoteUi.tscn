@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://be7g1vuhl0nk3"]
+
+[ext_resource type="Texture2D" uid="uid://b5tlfbf0a0q1q" path="res://Sprites/player.png" id="1_b4vab"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46ov8"]
+atlas = ExtResource("1_b4vab")
+region = Rect2(576, 0, 32, 32)
+margin = Rect2(2, 2, 4, 4)
+
+[node name="TextureRect" type="TextureRect"]
+texture = SubResource("AtlasTexture_46ov8")
+expand_mode = 2

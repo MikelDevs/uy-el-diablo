@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpm8sgq5pyruu"]
 
-[ext_resource type="Script" uid="uid://bj6kkhqycfoj5" path="res://Scripts/ui.gd" id="1_jxero"]
+[ext_resource type="Script" uid="uid://bj6kkhqycfoj5" path="res://Scripts/Ui.gd" id="1_jxero"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wviqb"]
 bg_color = Color(0.952469, 0.692925, 0.203495, 1)
@@ -38,3 +38,21 @@ theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_wviqb")
 text = "Perfect"
 vertical_alignment = 1
+
+[node name="text" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 877.0
+offset_top = 483.0
+offset_right = 1026.0
+offset_bottom = 552.0
+theme_override_font_sizes/font_size = 50
+text = "START"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 0
+offset_left = -2.0
+offset_top = 502.0
+offset_right = -2.0
+offset_bottom = 502.0

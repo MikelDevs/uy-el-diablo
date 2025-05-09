@@ -1,3 +1,4 @@
+class_name Ui
 extends CanvasLayer
 
 @onready var feedback_label := $Control/Label

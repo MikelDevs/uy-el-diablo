@@ -1,19 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://b83m063smqkk2"]
+[gd_scene load_steps=4 format=3 uid="uid://b83m063smqkk2"]
 
-[ext_resource type="PackedScene" uid="uid://dybsr1a3vyhtw" path="res://Scenes/player.tscn" id="1_7jmb3"]
-[ext_resource type="PackedScene" uid="uid://cga7pivud3kpe" path="res://Scenes/enemy.tscn" id="2_fe60u"]
-[ext_resource type="PackedScene" uid="uid://brsy8r3f8gg4p" path="res://Scenes/area.tscn" id="3_4ln8h"]
-[ext_resource type="PackedScene" uid="uid://bpm8sgq5pyruu" path="res://Scenes/ui.tscn" id="4_ubpar"]
+[ext_resource type="Script" uid="uid://be371p1o5iie1" path="res://Scripts/Combat.gd" id="1_0dhp0"]
+[ext_resource type="PackedScene" uid="uid://brsy8r3f8gg4p" path="res://Scenes/Area.tscn" id="4_xd0fh"]
+[ext_resource type="PackedScene" uid="uid://bpm8sgq5pyruu" path="res://Scenes/Ui.tscn" id="5_snhto"]
 
 [node name="Combat" type="Node2D"]
+script = ExtResource("1_0dhp0")
 
-[node name="Enemy" parent="." instance=ExtResource("2_fe60u")]
-position = Vector2(960, 150)
-
-[node name="Player" parent="." instance=ExtResource("1_7jmb3")]
-position = Vector2(960, 900)
-
-[node name="Area" parent="." instance=ExtResource("3_4ln8h")]
+[node name="Area" parent="." instance=ExtResource("4_xd0fh")]
 position = Vector2(960, 0)
 
-[node name="Ui" parent="." instance=ExtResource("4_ubpar")]
+[node name="Ui" parent="." instance=ExtResource("5_snhto")]
