@@ -8,6 +8,8 @@ extends Node2D
 const _default_player_position : Vector2 = Vector2(960, 900)
 const _default_enemy_position : Vector2 = Vector2(960, 100)
 
+var is_started = false
+
 func _ready() -> void:
 	flame_golem.enemy_data = preload("res://Attributes/Enemies/FlameGolem.tres")
 	player.player_data = preload("res://Attributes/Player/Player.tres")
@@ -25,11 +27,12 @@ func start_combat() -> void:
 		await get_tree().create_timer(1.0).timeout 
 	label_start.visible = false  
 	area.start_combat()
+	is_started = true
 
 func set_characters() -> void:
 	flame_golem.position = _default_enemy_position
 	player.position = _default_player_position
 	add_child(player)
 	add_child(flame_golem)
-	move_child(flame_golem, 0)
-	move_child(player, 0)
+	move_child(flame_golem, 1)
+	move_child(player, 1)

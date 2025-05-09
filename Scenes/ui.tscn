@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpm8sgq5pyruu"]
+[gd_scene load_steps=4 format=3 uid="uid://bpm8sgq5pyruu"]
 
-[ext_resource type="Script" uid="uid://bj6kkhqycfoj5" path="res://Scripts/Ui.gd" id="1_jxero"]
+[ext_resource type="Script" uid="uid://bj6kkhqycfoj5" path="res://Scripts/ui.gd" id="1_jxero"]
+[ext_resource type="Texture2D" uid="uid://pk7038kotfas" path="res://Assets/combo.png" id="2_qdvrb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wviqb"]
 bg_color = Color(0.952469, 0.692925, 0.203495, 1)
@@ -20,6 +21,10 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(960, 540)
+texture = ExtResource("2_qdvrb")
 
 [node name="Label" type="Label" parent="Control"]
 visible = false
@@ -49,10 +54,9 @@ offset_bottom = 552.0
 theme_override_font_sizes/font_size = 50
 text = "START"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-custom_minimum_size = Vector2(500, 200)
+[node name="Combo" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(1920, 100)
 layout_mode = 0
-offset_left = -2.0
-offset_top = 502.0
-offset_right = -2.0
-offset_bottom = 502.0
+offset_top = 490.0
+offset_right = 1920.0
+offset_bottom = 590.0

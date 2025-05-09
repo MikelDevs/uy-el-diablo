@@ -6,6 +6,7 @@ extends Node2D
 @onready var area : Area = get_parent().get_node("Area")
 @onready var ui : Ui = get_parent().get_node("Ui")
 @onready var combo_note_ui = preload("res://Scenes/ComboNoteUi.tscn")
+@onready var sprites = preload("res://Sprites/player.png")
 
 @export var player_data: PlayerAttributesResource
 
@@ -64,11 +65,12 @@ func attack(name_anima:String) -> void:
 		return
 	
 	is_attacking = true
-	var combo = ui.get_node("Control/HBoxContainer")
+	var combo = ui.get_node("Control/Combo")
 	var current_note : TextureRect = combo_note_ui.instantiate()
 	
 	match name_anima:
 		"right_up":
+			current_note.texture = new_tex("Red")
 			anima.play("up_attack")
 			if area.get_node("AreaGrey3").is_perfect:
 				ui.show_feedback("Perfect")
@@ -77,6 +79,7 @@ func attack(name_anima:String) -> void:
 			else:
 				ui.show_feedback("Fail")
 		"right":
+			current_note.texture = new_tex("Yellow")
 			anima.play("down_attack")
 			if area.get_node("AreaGrey8").is_perfect:
 				ui.show_feedback("Perfect")
@@ -85,6 +88,7 @@ func attack(name_anima:String) -> void:
 			else:
 				ui.show_feedback("Fail")
 		"left_up":
+			current_note.texture = new_tex("Green")
 			anima.flip_h = true
 			anima.play("up_attack")
 			if area.get_node("AreaGrey").is_perfect:
@@ -94,6 +98,7 @@ func attack(name_anima:String) -> void:
 			else:
 				ui.show_feedback("Fail")
 		"left":
+			current_note.texture = new_tex("Blue")
 			anima.flip_h = true
 			anima.play("down_attack")
 			if area.get_node("AreaGrey2").is_perfect:
@@ -137,3 +142,10 @@ func dodge(name_dodge:String) -> void:
 		"left":
 			anima.flip_h = true
 			anima.play("side_dodge")
+
+func new_tex(color:String) -> AtlasTexture:
+	var tex = AtlasTexture.new()
+	tex.atlas = sprites
+	tex.region = Rect2(colors[color], 0, 32, 32)
+	tex.margin = Rect2(2, 2, 4, 4)
+	return tex

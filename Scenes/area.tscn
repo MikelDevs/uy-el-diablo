@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://brsy8r3f8gg4p"]
 
 [ext_resource type="Texture2D" uid="uid://b5tlfbf0a0q1q" path="res://Sprites/player.png" id="1_o88qo"]
-[ext_resource type="Script" uid="uid://c874vu133174k" path="res://Scripts/Area.gd" id="1_oujlu"]
-[ext_resource type="Script" uid="uid://cvw3ajluemxub" path="res://Scripts/PulseColision.gd" id="4_p63qu"]
+[ext_resource type="Script" uid="uid://c874vu133174k" path="res://Scripts/area.gd" id="1_oujlu"]
+[ext_resource type="Script" uid="uid://cvw3ajluemxub" path="res://Scripts/pulseColision.gd" id="4_p63qu"]
 [ext_resource type="AudioStream" uid="uid://d3o72y82ocdg1" path="res://Assets/548508__ludwigmueller__perc_clicktoy_hi.wav" id="5_mnqw4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x45ud"]
