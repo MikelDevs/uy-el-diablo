@@ -1,19 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://b83m063smqkk2"]
+[gd_scene load_steps=7 format=3 uid="uid://b83m063smqkk2"]
 
 [ext_resource type="Script" uid="uid://be371p1o5iie1" path="res://Scripts/Combat.gd" id="1_0dhp0"]
-[ext_resource type="Texture2D" uid="uid://dmjw0ww4r7waq" path="res://Assets/hell_background.png" id="2_ubpar"]
-[ext_resource type="PackedScene" uid="uid://brsy8r3f8gg4p" path="res://Scenes/area.tscn" id="4_xd0fh"]
+[ext_resource type="Texture2D" uid="uid://cexg8chn63ys1" path="res://Assets/ezgif-4d1ff7750b66a4.png" id="3_4ln8h"]
+[ext_resource type="PackedScene" uid="uid://jfnhuhx13are" path="res://Scenes/pulse.tscn" id="4_ubpar"]
 [ext_resource type="PackedScene" uid="uid://bpm8sgq5pyruu" path="res://Scenes/ui.tscn" id="5_snhto"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubpar"]
+atlas = ExtResource("3_4ln8h")
+region = Rect2(0, 0, 1456, 819)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r4oui"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_ubpar")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Combat" type="Node2D"]
 script = ExtResource("1_0dhp0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(981, 547)
-scale = Vector2(2, 2)
-texture = ExtResource("2_ubpar")
-
-[node name="Area" parent="." instance=ExtResource("4_xd0fh")]
-position = Vector2(960, 0)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(959.028, 540.672)
+scale = Vector2(1.36184, 1.36184)
+sprite_frames = SubResource("SpriteFrames_r4oui")
+frame_progress = 0.508901
 
 [node name="Ui" parent="." instance=ExtResource("5_snhto")]
+
+[node name="Pulse" parent="." instance=ExtResource("4_ubpar")]
+position = Vector2(100, 100)
+scale = Vector2(4, 4)

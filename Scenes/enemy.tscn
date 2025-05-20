@@ -1,15 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://cga7pivud3kpe"]
+[gd_scene load_steps=11 format=3 uid="uid://cga7pivud3kpe"]
 
 [ext_resource type="Script" uid="uid://cpeihiy3r5tn" path="res://Scripts/Enemy.gd" id="1_xeo28"]
-[ext_resource type="Texture2D" uid="uid://1cll4q3hmese" path="res://Sprites/FlameDemon Evolved.png" id="2_kpr8r"]
+[ext_resource type="Texture2D" uid="uid://bovt2gufgggh0" path="res://Sprites/Blue_witch/B_witch_idle.png" id="2_afpow"]
 [ext_resource type="AudioStream" uid="uid://lkya6cmnkhdh" path="res://Assets/An Angel born.mp3" id="3_1exfc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_287tu"]
+atlas = ExtResource("2_afpow")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0830c"]
+atlas = ExtResource("2_afpow")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghaa6"]
+atlas = ExtResource("2_afpow")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dp5w"]
+atlas = ExtResource("2_afpow")
+region = Rect2(0, 144, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auwsv"]
+atlas = ExtResource("2_afpow")
+region = Rect2(0, 192, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uf12"]
+atlas = ExtResource("2_afpow")
+region = Rect2(0, 240, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_po0sg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_287tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0830c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghaa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dp5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auwsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uf12")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_xeo28")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.5, 4.5)
-texture = ExtResource("2_kpr8r")
+sprite_frames = SubResource("SpriteFrames_po0sg")
+frame = 3
+frame_progress = 0.835056
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_1exfc")

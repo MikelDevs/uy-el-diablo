@@ -1,7 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpm8sgq5pyruu"]
 
 [ext_resource type="Script" uid="uid://bj6kkhqycfoj5" path="res://Scripts/ui.gd" id="1_jxero"]
-[ext_resource type="Texture2D" uid="uid://pk7038kotfas" path="res://Assets/combo.png" id="2_qdvrb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jxero"]
+load_path = "res://.godot/imported/combo.png-affeb61ea16ddadcb9a6555c9639ced3.ctex"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wviqb"]
 bg_color = Color(0.952469, 0.692925, 0.203495, 1)
@@ -23,8 +25,8 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
-position = Vector2(960, 540)
-texture = ExtResource("2_qdvrb")
+position = Vector2(959, 540)
+texture = SubResource("CompressedTexture2D_jxero")
 
 [node name="Label" type="Label" parent="Control"]
 visible = false

@@ -3,7 +3,6 @@ class_name Player
 extends Node2D
 
 @onready var anima = $AnimatedSprite2D
-@onready var area : Area = get_parent().get_node("Area")
 @onready var ui : Ui = get_parent().get_node("Ui")
 @onready var combo_note_ui = preload("res://Scenes/ComboNoteUi.tscn")
 @onready var sprites = preload("res://Sprites/player.png")
@@ -72,42 +71,18 @@ func attack(name_anima:String) -> void:
 		"right_up":
 			current_note.texture = new_tex("Red")
 			anima.play("up_attack")
-			if area.get_node("AreaGrey3").is_perfect:
-				ui.show_feedback("Perfect")
-			elif area.get_node("AreaGrey3").is_good:
-				ui.show_feedback("Good")
-			else:
-				ui.show_feedback("Fail")
 		"right":
 			current_note.texture = new_tex("Yellow")
 			anima.play("down_attack")
-			if area.get_node("AreaGrey8").is_perfect:
-				ui.show_feedback("Perfect")
-			elif area.get_node("AreaGrey8").is_good:
-				ui.show_feedback("Good")
-			else:
-				ui.show_feedback("Fail")
 		"left_up":
 			current_note.texture = new_tex("Green")
 			anima.flip_h = true
 			anima.play("up_attack")
-			if area.get_node("AreaGrey").is_perfect:
-				ui.show_feedback("Perfect")
-			elif area.get_node("AreaGrey").is_good:
-				ui.show_feedback("Good")
-			else:
-				ui.show_feedback("Fail")
 		"left":
 			current_note.texture = new_tex("Blue")
 			anima.flip_h = true
 			anima.play("down_attack")
-			if area.get_node("AreaGrey2").is_perfect:
-				ui.show_feedback("Perfect")
-			elif area.get_node("AreaGrey2").is_good:
-				ui.show_feedback("Good")
-			else:
-				ui.show_feedback("Fail")
-	
+			
 	combo.add_child(current_note)
 
 func block(name_anima:String) -> void:
