@@ -63,18 +63,16 @@ func attack(name_anima:String) -> void:
 	
 	match name_anima:
 		"right_up":
-			anima.play("up_attack")
+			anima.play("e_attack")
 			emit_signal("onAttack", "e")
 		"right":
-			anima.play("down_attack")
+			anima.play("f_attack")
 			emit_signal("onAttack", "f")
 		"left_up":
-			anima.flip_h = true
-			anima.play("up_attack")
+			anima.play("w_attack")
 			emit_signal("onAttack", "w")
 		"left":
-			anima.flip_h = true
-			anima.play("down_attack")
+			anima.play("a_attack")
 			emit_signal("onAttack", "a")
 
 func block(name_anima:String) -> void:
@@ -112,3 +110,9 @@ func dodge(name_dodge:String) -> void:
 
 func restock():
 	current_stock = attr.stock
+
+func change_hp(value:float, is_pluse:bool):
+	if is_pluse:
+		current_health += value
+	else:
+		current_health -= value

@@ -26,3 +26,9 @@ func _ready():
 
 func restock():
 	current_stock = attr.stock
+
+func change_hp(value:float, is_pluse:bool):
+	if is_pluse:
+		current_health += value
+	else:
+		current_health -= value

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var witch : Enemy = preload("res://Scenes/Enemy.tscn").instantiate()
+@onready var enemy : Enemy = preload("res://Scenes/Enemy.tscn").instantiate()
 @onready var player : Player = preload("res://Scenes/Player.tscn").instantiate()
 @onready var ui : Ui = $Ui
 @onready var pulse : Pulse = $Pulse
@@ -60,7 +60,7 @@ var special_attacks = [
 ]
 
 func _ready() -> void:
-	witch.enemy_data = preload("res://Attributes/Enemies/Witch.tres")
+	enemy.enemy_data = preload("res://Attributes/Enemies/Witch.tres")
 	player.player_data = preload("res://Attributes/Player/Player.tres")
 	
 	pulse.connect("onGoodPulseStart", _on_good_pulse_start)
@@ -91,7 +91,7 @@ func end_turn() -> void:
 	combo = []
 	clear_stocks(combo_ui)
 	player.restock()
-	witch.restock()
+	enemy.restock()
 	set_ui()
 	
 func keys(combo):
@@ -111,11 +111,11 @@ func prepare() -> void:
 
 func set_turns() -> void:
 	turn = 1
-	if player.attr.speed > witch.attr.speed:
+	if player.attr.speed > enemy.attr.speed:
 		player_turn = true
-	elif player.attr.speed < witch.attr.speed:
+	elif player.attr.speed < enemy.attr.speed:
 		player_turn = false
-	elif  player.attr.speed == witch.attr.speed:
+	elif  player.attr.speed == enemy.attr.speed:
 		player_turn = rand_turn()
 		
 	set_turns_ui()
@@ -138,11 +138,11 @@ func set_turns_ui() -> void:
 		turn_to.text = "ENEMY TURN"
 
 func set_characters() -> void:
-	witch.position = _default_enemy_position
+	enemy.position = _default_enemy_position
 	player.position = _default_player_position
 	add_child(player)
-	add_child(witch)
-	move_child(witch, 1)
+	add_child(enemy)
+	move_child(enemy, 1)
 	move_child(player, 1)
 
 func set_ui() -> void:
@@ -152,12 +152,12 @@ func set_ui() -> void:
 	for stock in player.current_stock:
 		var stock_init = stock_default.instantiate()
 		player_stock.add_child(stock_init)
-	for stock in witch.current_stock:
+	for stock in enemy.current_stock:
 		var stock_init = stock_default.instantiate()
 		enemy_stock.add_child(stock_init)
 	
 	player_hp.value = calculate_hp_porcentage(player.attr.health, player.current_health)
-	enemy_hp.value = calculate_hp_porcentage(witch.attr.health, witch.current_health)
+	enemy_hp.value = calculate_hp_porcentage(enemy.attr.health, enemy.current_health)
 
 func start():
 	var label_start = ui.get_node("Control/text")
@@ -252,12 +252,12 @@ func is_special_attack(notes) -> bool:
 	return false
 
 func do_attack(count: int , from, to) -> void:
-	var damage = 10 * count
-	push_warning("Ataque básico de ", damage, " de daño.")
+	var damage = 5 * count
+	enemy.change_hp(damage, false)
 
 func heal(count: int , from, to) -> void:
 	var heal_amount = 5 * count
-	push_warning("Curación de ", heal_amount)
+	player.change_hp(heal_amount, true)
 
 func apply_buff(count: int , from, to) -> void:
 	push_warning("Buff aplicado por ", count, " turnos.")
@@ -268,7 +268,7 @@ func apply_debuff(count: int , from, to) -> void:
 func execute_special_combo(notes , from, to) -> void:
 	# Aquí puedes definir efectos únicos por combo
 	if notes == ["e","w","e","w","e",]:
-		push_warning("¡Ataque triple!")
+		enemy.change_hp(50,false)
 	elif notes == ["w","w","w","f","f",]:
 		push_warning("¡Curación potenciada!")
 
@@ -276,7 +276,7 @@ func process_notes(notes) -> void:
 	push_warning(notes)
 	if is_special_attack(notes):
 		push_warning("Combo especial activado!")
-		execute_special_combo(notes, player, witch)
+		execute_special_combo(notes, player, enemy)
 	else:
 		var counts := {
 			"e": 0,
@@ -292,10 +292,10 @@ func process_notes(notes) -> void:
 		
 		# Aplicar efectos según cantidades
 		if counts["e"] > 0:
-			do_attack(counts["e"], player, witch)
+			do_attack(counts["e"], player, enemy)
 		if counts["w"] > 0:
-			heal(counts["w"], player, witch)
+			heal(counts["w"], player, enemy)
 		if counts["a"] > 0:
-			apply_buff(counts["a"], player, witch)
+			apply_buff(counts["a"], player, enemy)
 		if counts["f"] > 0:
-			apply_debuff(counts["f"], player, witch)
+			apply_debuff(counts["f"], player, enemy)
