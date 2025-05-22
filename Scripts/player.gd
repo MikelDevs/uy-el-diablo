@@ -3,27 +3,23 @@ class_name Player
 extends Node2D
 
 @onready var anima = $AnimatedSprite2D
-@onready var ui : Ui = get_parent().get_node("Ui")
-@onready var combo_note_ui = preload("res://Scenes/ComboNoteUi.tscn")
-@onready var sprites = preload("res://Sprites/player.png")
-
+@onready var attr = player_data.attributes
 @export var player_data: PlayerAttributesResource
 
+signal onAttack(attack:String)
+
 var current_health: float
+var current_stock: int
+var current_speed: float
 var is_attacking = false
 var is_dodging = false
 var is_blocking = false
-var colors = {
-	"Yellow": 544,
-	"Blue": 512,
-	"Red": 480,
-	"Green": 448
-}
 
 func _ready() -> void:
-	# Cargar atributos
-	var 	attr = player_data.attributes
 	current_health = attr.health
+	current_stock = attr.stock
+	current_speed = attr.speed
+	
 	anima.play("idle")
 
 func _process(_delta: float) -> void:
@@ -64,26 +60,22 @@ func attack(name_anima:String) -> void:
 		return
 	
 	is_attacking = true
-	var combo = ui.get_node("Control/Combo")
-	var current_note : TextureRect = combo_note_ui.instantiate()
 	
 	match name_anima:
 		"right_up":
-			current_note.texture = new_tex("Red")
 			anima.play("up_attack")
+			emit_signal("onAttack", "e")
 		"right":
-			current_note.texture = new_tex("Yellow")
 			anima.play("down_attack")
+			emit_signal("onAttack", "f")
 		"left_up":
-			current_note.texture = new_tex("Green")
 			anima.flip_h = true
 			anima.play("up_attack")
+			emit_signal("onAttack", "w")
 		"left":
-			current_note.texture = new_tex("Blue")
 			anima.flip_h = true
 			anima.play("down_attack")
-			
-	combo.add_child(current_note)
+			emit_signal("onAttack", "a")
 
 func block(name_anima:String) -> void:
 	if name_anima == "none":
@@ -118,9 +110,5 @@ func dodge(name_dodge:String) -> void:
 			anima.flip_h = true
 			anima.play("side_dodge")
 
-func new_tex(color:String) -> AtlasTexture:
-	var tex = AtlasTexture.new()
-	tex.atlas = sprites
-	tex.region = Rect2(colors[color], 0, 32, 32)
-	tex.margin = Rect2(2, 2, 4, 4)
-	return tex
+func restock():
+	current_stock = attr.stock

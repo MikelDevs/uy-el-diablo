@@ -10,6 +10,8 @@ health = 250.0
 attack_damage = 20.0
 crit_prob = 20.0
 crit_damage = 100.0
+stock = 3
+speed = 50.0
 metadata/_custom_type_script = "uid://8uolhuxf1k3r"
 
 [resource]

@@ -1,19 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpm8sgq5pyruu"]
+[gd_scene load_steps=7 format=3 uid="uid://bpm8sgq5pyruu"]
 
-[ext_resource type="Script" uid="uid://bj6kkhqycfoj5" path="res://Scripts/ui.gd" id="1_jxero"]
+[ext_resource type="Script" uid="uid://bj6kkhqycfoj5" path="res://Scripts/Ui.gd" id="1_jxero"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jxero"]
 load_path = "res://.godot/imported/combo.png-affeb61ea16ddadcb9a6555c9639ced3.ctex"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wviqb"]
-bg_color = Color(0.952469, 0.692925, 0.203495, 1)
-border_width_left = 33
-border_width_bottom = 3
-border_color = Color(0.952941, 0.694118, 0.203922, 1)
-corner_radius_bottom_left = 21
-shadow_color = Color(0, 0, 0, 0.262745)
-shadow_size = 3
-shadow_offset = Vector2(2, 2)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01iap"]
+bg_color = Color(0.588235, 0.588235, 0.588235, 0.196078)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ih7qm"]
+bg_color = Color(3.51354e-06, 0.665113, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cc6k"]
+bg_color = Color(0.588235, 0.588235, 0.588235, 0.196078)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dofnr"]
+bg_color = Color(0, 0.666667, 0, 1)
 
 [node name="Ui" type="CanvasLayer"]
 script = ExtResource("1_jxero")
@@ -28,33 +30,45 @@ offset_bottom = 1080.0
 position = Vector2(959, 540)
 texture = SubResource("CompressedTexture2D_jxero")
 
-[node name="Label" type="Label" parent="Control"]
-visible = false
-layout_mode = 0
-offset_left = 539.0
-offset_top = 912.0
-offset_right = 662.0
-offset_bottom = 961.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.54902)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 1
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_wviqb")
-text = "Perfect"
-vertical_alignment = 1
-
 [node name="text" type="Label" parent="Control"]
 visible = false
 layout_mode = 0
-offset_left = 877.0
-offset_top = 483.0
-offset_right = 1026.0
-offset_bottom = 552.0
+offset_left = 901.0
+offset_top = 507.0
+offset_right = 1050.0
+offset_bottom = 576.0
 theme_override_font_sizes/font_size = 50
 text = "START"
+
+[node name="turnText" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 13.0
+offset_right = 1072.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 50
+text = "TURNO"
+horizontal_alignment = 1
+
+[node name="turn" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 901.0
+offset_top = 79.0
+offset_right = 1050.0
+offset_bottom = 148.0
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[node name="turnTo" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 835.0
+offset_top = 148.0
+offset_right = 1123.0
+offset_bottom = 361.0
+theme_override_font_sizes/font_size = 50
+text = "YOUR TURN"
+horizontal_alignment = 1
 
 [node name="Combo" type="HBoxContainer" parent="Control"]
 custom_minimum_size = Vector2(1920, 100)
@@ -62,3 +76,39 @@ layout_mode = 0
 offset_top = 490.0
 offset_right = 1920.0
 offset_bottom = 590.0
+scale = Vector2(0.994815, 1)
+
+[node name="PlayerHp" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 600.0
+offset_right = 533.0
+offset_bottom = 660.0
+theme_override_styles/background = SubResource("StyleBoxFlat_01iap")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ih7qm")
+step = 1.0
+value = 100.0
+
+[node name="PlayerStock" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 0
+offset_left = 33.0
+offset_top = 676.0
+offset_right = 533.0
+offset_bottom = 1076.0
+theme_override_constants/separation = 10
+
+[node name="EnemyHp" type="ProgressBar" parent="Control"]
+offset_left = 1399.0
+offset_top = 7.0
+offset_right = 1899.0
+offset_bottom = 67.0
+theme_override_styles/background = SubResource("StyleBoxFlat_5cc6k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dofnr")
+step = 1.0
+
+[node name="EnemyStock" type="VBoxContainer" parent="Control"]
+offset_left = 1399.0
+offset_top = 83.0
+offset_right = 1899.0
+offset_bottom = 483.0

@@ -3,8 +3,11 @@ extends Node2D
 
 @export var enemy_data: EnemyAttributesResource
 @onready var anima : AnimatedSprite2D = $AnimatedSprite2D
+@onready var attr = enemy_data.attributes
 
 var current_health: float
+var current_stock: int
+var current_speed: float
 
 func _ready():
 	
@@ -17,5 +20,9 @@ func _ready():
 	anima.play()
 
 	# Cargar atributos
-	var attr = enemy_data.attributes
 	current_health = attr.health
+	current_stock = attr.stock
+	current_speed = attr.speed
+
+func restock():
+	current_stock = attr.stock
