@@ -251,21 +251,21 @@ func is_special_attack(notes) -> bool:
 			return true
 	return false
 
-func do_attack(count: int) -> void:
+func do_attack(count: int , from, to) -> void:
 	var damage = 10 * count
 	push_warning("Ataque básico de ", damage, " de daño.")
 
-func heal(count: int) -> void:
+func heal(count: int , from, to) -> void:
 	var heal_amount = 5 * count
 	push_warning("Curación de ", heal_amount)
 
-func apply_buff(count: int) -> void:
+func apply_buff(count: int , from, to) -> void:
 	push_warning("Buff aplicado por ", count, " turnos.")
 
-func apply_debuff(count: int) -> void:
+func apply_debuff(count: int , from, to) -> void:
 	push_warning("Debuff al enemigo por ", count, " turnos.")
 
-func execute_special_combo(notes) -> void:
+func execute_special_combo(notes , from, to) -> void:
 	# Aquí puedes definir efectos únicos por combo
 	if notes == ["e","w","e","w","e",]:
 		push_warning("¡Ataque triple!")
@@ -276,7 +276,7 @@ func process_notes(notes) -> void:
 	push_warning(notes)
 	if is_special_attack(notes):
 		push_warning("Combo especial activado!")
-		execute_special_combo(notes)
+		execute_special_combo(notes, player, witch)
 	else:
 		var counts := {
 			"e": 0,
@@ -292,10 +292,10 @@ func process_notes(notes) -> void:
 		
 		# Aplicar efectos según cantidades
 		if counts["e"] > 0:
-			do_attack(counts["e"])
+			do_attack(counts["e"], player, witch)
 		if counts["w"] > 0:
-			heal(counts["w"])
+			heal(counts["w"], player, witch)
 		if counts["a"] > 0:
-			apply_buff(counts["a"])
+			apply_buff(counts["a"], player, witch)
 		if counts["f"] > 0:
-			apply_debuff(counts["f"])
+			apply_debuff(counts["f"], player, witch)
